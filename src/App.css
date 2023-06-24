@@ -1,0 +1,12 @@
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.arrow-symbol{
+    font-size: 25px;
+}
+
+.nav-item :hover{
+    color: rgb(0, 0, 0) !important;
+}

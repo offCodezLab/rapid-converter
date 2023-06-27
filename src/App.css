@@ -1,5 +1,5 @@
 body{
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', 'Verdana';
 }
 
 .arrow-symbol{
@@ -8,4 +8,9 @@ body{
 
 .nav-item :hover{
     color: rgb(0, 0, 0) !important;
+}
+
+.nav-title{
+    font-family: 'monospace', 'Consolas';
+    font-weight:bold;
 }

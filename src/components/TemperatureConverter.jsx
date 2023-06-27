@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-export default function TemperatureConverter() {
+export default function TemperatureConverter(props) {
+    useEffect(() => {
+        props.showLoading();
+    }, [])
+
     const [firstChoice, setFirstChoice] = useState("");
     const [secondChoice, setSecondChoice] = useState("");
     const [inputTemperature, setInputTemperature] = useState("");
@@ -29,7 +33,7 @@ export default function TemperatureConverter() {
         }
     }
     return (
-        <div className="container">
+        !props.loading && <div className="container">
             <h1>Temperature Converter</h1>
             <div className="row justify-content-center mt-5">
                 <div className="col-md-3">

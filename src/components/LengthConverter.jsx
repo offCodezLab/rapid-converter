@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
 
-export default function LengthConverter() {
+export default function LengthConverter(props) {
+    useEffect(() => {
+        props.showLoading();
+    }, [])
+
     const [firstChoice, setFirstChoice] = useState("");
     const [secondChoice, setSecondChoice] = useState("");
     const [inputLength, setInputLength] = useState("");
@@ -29,14 +33,14 @@ export default function LengthConverter() {
             setResult("");
         } else {
             const conversionRatio = lengthConversionRatios[firstChoice] / lengthConversionRatios[secondChoice];
-            setResult(inputLength * conversionRatio);
+            setResult((inputLength * conversionRatio).toFixed(3));
         }
     };
 
 
 
     return (
-        <div className="container">
+        !props.loading && <div className="container">
             <h1>Length Converter</h1>
             <div className="row justify-content-center mt-5">
                 <div className="col-md-3">

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-export default function TimeConverter() {
+export default function TimeConverter(props) {
+    useEffect(() => {
+        props.showLoading();
+    }, [])
+
     const [firstChoice, setFirstChoice] = useState("");
     const [secondChoice, setSecondChoice] = useState("");
     const [inputTime, setInputTime] = useState("");
@@ -28,13 +32,13 @@ export default function TimeConverter() {
             setResult("");
         } else {
             const conversionRatio = timeConversionRatios[firstChoice] / timeConversionRatios[secondChoice];
-            setResult(inputTime * conversionRatio);
+            setResult((inputTime * conversionRatio).toFixed(2));
         }
     };
 
 
     return (
-        <div className="container">
+        !props.loading && <div className="container">
             <h1>Time Converter</h1>
             <div className="row justify-content-center mt-5">
                 <div className="col-md-3">
